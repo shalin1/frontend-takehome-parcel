@@ -7,7 +7,12 @@
     "build": "./node_modules/.bin/parcel build ./index.html",
     "dev": "concurrently './node_modules/.bin/parcel ./index.html' 'node ./server'",
     "start": "NODE_ENV=production node ./server",
-    "test": "echo 'Your test command goes here'"
+    "test": "jest --watch --verbose"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./test/setup.js"
+    ]
   },
   "repository": {
     "type": "git",
@@ -22,6 +27,17 @@
   "dependencies": {
     "concurrently": "^4.0.1",
     "express": "^4.16.3",
-    "parcel": "^1.9.7"
+    "parcel": "^1.9.7",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.10.4",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "^26.1.0"
   }
 }
