@@ -1,8 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
-import {axe, toHaveNoViolations} from "jest-axe";
-expect.extend(toHaveNoViolations);
 import App from '../src/App';
 import SearchInput from '../src/components/SearchInput';
 
@@ -15,11 +13,6 @@ describe('App', () => {
     it('has not changed from the last snapshot', () => {
         const tree = renderer.create(app).toJSON();
         expect(tree).toMatchSnapshot();
-    })
-
-    it('has no programmatically detectable a11y issues', async () => {
-        const results = await axe(app.html());
-        expect(results).toHaveNoViolations();
     })
 
     it('renders a hello world header', () => {

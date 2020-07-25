@@ -1,8 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
-import {axe, toHaveNoViolations} from "jest-axe";
-expect.extend(toHaveNoViolations);
 import SearchInput from '../../src/components/SearchInput';
 
 describe('SearchInput', () => {
@@ -17,11 +15,6 @@ describe('SearchInput', () => {
     it('has not changed from the last snapshot', () => {
         const tree = renderer.create(wrapper).toJSON();
         expect(tree).toMatchSnapshot();
-    })
-
-    it('has no programmatically detectable a11y issues', async () => {
-        const results = await axe(wrapper.html());
-        expect(results).toHaveNoViolations();
     })
 
     describe('the label', () => {
