@@ -9,7 +9,6 @@ describe('SearchInput', () => {
     const onChange = jest.fn()
     const props = { value: 'initial value', onChange }
     const wrapper = shallow(<SearchInput {...props} />)
-    const input = wrapper.find('input')
 
     it('renders', () => {
         expect(wrapper.exists()).toBe(true)
@@ -25,24 +24,39 @@ describe('SearchInput', () => {
         expect(results).toHaveNoViolations();
     })
 
-    it('renders a label', () => {
+    describe('the label', () => {
         const label = wrapper.find('label')
-        expect(label.exists()).toBe(true)
-        expect(label.text()).toBe('Search')
+
+        it('renders', () => {
+            expect(label.exists()).toBe(true)
+        })
+
+        it('has the expected text', ()=>{
+            expect(label.text()).toBe('Search')
+        })
     })
 
-    it('renders an input element with the expected placeholder', () => {
-        expect(input.exists()).toBe(true);
-        expect(input.props().placeholder).toBe('Search Gems...')
-    });
+    describe('the input element', () => {
+        const input = wrapper.find('input')
 
-    it('sets the value of the input element to the value prop', () => {
-        expect(input.props().value).toBe('initial value')
+        it('renders', () => {
+            expect(input.exists()).toBe(true);
+        });
+
+        it('has the expected placeholder', () => {
+            expect(input.props().placeholder).toBe('Search Gems...')
+        })
+
+        it("sets the value of the input element to the component's value prop", () => {
+            expect(input.props().value).toBe('initial value')
+        })
     })
 
     describe('when the input is updated',()=>{
         it('calls the onChange hook with the updated value', () => {
+            const input = wrapper.find('input')
             const event = {target:{value:'updated value'}}
+
             input.simulate('change',event);
 
             expect(onChange).toHaveBeenCalledWith('updated value')
