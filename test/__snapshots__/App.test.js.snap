@@ -5,7 +5,7 @@ exports[`App has not changed from the last snapshot 1`] = `
   role="main"
 >
   <h1>
-    ✨👋🌍Hello World
+    ✨👋🌍 Hello World
   </h1>
   <div
     role="search"
