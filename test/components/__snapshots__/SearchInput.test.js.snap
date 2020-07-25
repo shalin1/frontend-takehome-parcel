@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchInput has not changed from the last snapshot 1`] = `
+<div
+  role="search"
+>
+  <label
+    htmlFor="search-input"
+  >
+    Search
+  </label>
+  <input
+    id="search-input"
+    name="search-input"
+    onChange={[Function]}
+    placeholder="Search Gems..."
+    type="search"
+    value="initial value"
+  />
+</div>
+`;

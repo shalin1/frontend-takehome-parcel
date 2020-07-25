@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const SearchInput = ({onChange,value}) => {
     return (
-        <div role="search">
+        <div role="search" key="container">
             <label htmlFor="search-input">Search</label>
             <input
                 value={value}
