@@ -10,6 +10,7 @@
     "test": "jest --watch --verbose"
   },
   "jest": {
+    "clearMockss": true,
     "setupFilesAfterEnv": [
       "./test/setup.js"
     ]
