@@ -14,24 +14,30 @@ const SearchForm = ({loading,performSearch}) => {
     },[])
 
     const handleChange = e => {
-        setQuery(e.target.value)
+        setQuery(e.target.value || ' ')
+        if (e.key === 'Enter') {handleSubmit(e)}
     }
-    const handleKeyPress = ({key, target:{value}}) => {
-        if (key === 'Enter') { performSearch(value) }
-        setQuery(value)
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        performSearch(query)
     }
+
     return(
-        <FormContainer>
+        <FormContainer >
             <wired-input
                 aria-label="Search"
-                onChange={handleChange}
-                onKeyPress={handleKeyPress}
+                onKeyUp={handleChange}
                 placeholder="Search Gems..."
                 ref={searchInput}
                 type="search"
-                value={query}
+                value={' ' + query}
             />
-            <wired-button disabled={isSubmitDisabled} onClick={()=>performSearch(query)}>
+            <wired-button
+                onClick={handleSubmit}
+                disabled={isSubmitDisabled}
+                elevation={5}
+            >
                 <span> 🔍 </span>
             </wired-button>
         </FormContainer>
