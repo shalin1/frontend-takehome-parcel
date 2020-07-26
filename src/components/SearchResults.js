@@ -1,26 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SearchResults = ({records,saveRecord,unSaveRecord,loading,showLoading,submitted}) => {
+const SearchResults = ({records,saveRecord,unSaveRecord,savedGems,loading,showLoading,submitted}) => {
     if(!submitted) return <></>
     if(records.length===0) return <span>No results for your search!</span>
     if(showLoading && loading) return <p>loading...</p>
+    const savedGemShas = savedGems.map(({sha})=>sha)
+
     return(
         <>
             <h2>Search Results</h2>
-            {records.map(record=>
-                <SearchResult
-                    key={record.sha}
-                    record={record}
-                    saveRecord={saveRecord}
-                    unSaveRecord={unSaveRecord}
-                />
-            )}
+            {records.map(record=>{
+                const isNotSaved = savedGemShas.indexOf(record.sha) === -1
+                return (
+                    <SearchResult
+                        key={record.sha}
+                        record={record}
+                        saveRecord={saveRecord}
+                        unSaveRecord={unSaveRecord}
+                        isNotSaved={isNotSaved}
+                    />
+                )
+            })}
         </>
     )
 }
 
-const SearchResult = ({record,saveRecord,unSaveRecord}) => {
+const SearchResult = ({record,saveRecord,unSaveRecord,isNotSaved}) => {
     const {
         downloads,
         info,
@@ -40,12 +46,15 @@ const SearchResult = ({record,saveRecord,unSaveRecord}) => {
                 <br/>
                 <p>downloads</p>
             </div>
-            <button onClick={()=>saveRecord(record)}>
-                💾 Save Gem
-            </button>
-            <button onClick={()=>unSaveRecord(record)}>
-                🚫 UnSave Gem
-            </button>
+            {isNotSaved ?
+                <button onClick={()=>saveRecord(record)}>
+                    💾 Save Gem
+                </button>
+                :
+                <button onClick={()=>unSaveRecord(record)}>
+                    🚫 UnSave Gem
+                </button>
+            }
         </>
     )
 }

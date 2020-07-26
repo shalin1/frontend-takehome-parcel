@@ -66,6 +66,7 @@ const App = () => {
                     unSaveRecord={unSaveRecord}
                     loading={loading}
                     showLoading={showLoading}
+                    savedGems={savedGems}
                 />
             </div>
         </div>
