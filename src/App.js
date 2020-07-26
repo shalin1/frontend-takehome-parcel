@@ -30,7 +30,7 @@ const App = () => {
     return (
         <AppContainer role='main' key='app'>
             <Header>Ruby Gem Search</Header>
-            <SearchForm performSearch={performSearch} />
+            <SearchForm performSearch={performSearch} loading={loading} />
             <div>
                 {savedGems.length===0 ? <></> :
                     <>

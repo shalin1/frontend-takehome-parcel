@@ -6,7 +6,6 @@ import { WiredButton } from "wired-button"
 
 const SearchForm = ({loading,performSearch}) => {
     const [query,setQuery] = useState('')
-    const isSubmitDisabled = loading || query.length===0
     const searchInput = useRef(null)
     useEffect(()=>{
         // current property is refered to input element
@@ -34,7 +33,6 @@ const SearchForm = ({loading,performSearch}) => {
             />
             <wired-button
                 onClick={handleSubmit}
-                disabled={isSubmitDisabled}
                 elevation={4}
                 id="submit-button"
             >
@@ -59,14 +57,18 @@ const FormContainer = styled.section`
         padding: 0.4rem 0 0 0.8rem;
         width: 80%;
         text-transform: lowercase;
-        transition: all 3s;
+        transition: all 2s;
     }
     wired-button {
         height: 4rem;
         font-size: 2rem;
         margin-left: 0.3rem;
         padding-top: 0.1rem;
-        transition: all 3s;
+        transition: all 2s;
+        :hover {
+            background-color: lightcoral;
+            border-radius: 0.4rem;
+        }
     }
 `
 
