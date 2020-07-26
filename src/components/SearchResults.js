@@ -26,7 +26,10 @@ const SearchResults = ({foundGems,loading,savedGems,toggleSave}) => {
 }
 const SearchResultsContainer = styled.section`
     width: 100%;
-    wired-card
+    wired-card{
+    
+    width: 100%;
+    }
 `
 
 export default SearchResults

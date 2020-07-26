@@ -35,21 +35,21 @@ const App = () => {
         <AppContainer role='main' key='app'>
             <wired-card elevation={3}>
                 <HeaderContainer>
-                    <h1>Diggr™</h1>
+                    <h1>Diggr</h1>
                     <h2>A Ruby Gems Search Client</h2>
                 </HeaderContainer>
-                <SearchForm performSearch={performSearch} loading={loading} />
                 <Columns showResults={querySubmitted}>
-                    <SavedGems gems={savedGems}/>
-                    {querySubmitted &&
-                    <SearchResults
-                        foundGems={searchResults}
-                        loading={loading}
-                        savedGems={savedGems}
-                        toggleSave={toggleSave}
-                    />
-                    }
+                    <SearchForm performSearch={performSearch} loading={loading} />
+                    <SavedGems gems={savedGems} unSaveGem={unSaveGem}/>
                 </Columns>
+                {querySubmitted &&
+                <SearchResults
+                    foundGems={searchResults}
+                    loading={loading}
+                    savedGems={savedGems}
+                    toggleSave={toggleSave}
+                />
+                }
             </wired-card>
         </AppContainer>
     )
@@ -57,30 +57,29 @@ const App = () => {
 
 const Columns = styled.section`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
-  padding: 2rem;
   max-width: 100%;
   flex-direction: column;
-  @media (min-width: 768px) {
-    flex-direction: row;
+  @media (min-width: 1024px) {
+    flex-direction: row-reverse;
   }
 `
 
 const AppContainer =styled.section`
     background: white;
-    margin: 2rem;
+    margin: 2rem 2rem;
     text-align: center;
     > wired-card {
-        padding: 2rem;
+        padding: 1rem 4rem;
         width: 100%;
+        max-width: 1024px;
     }
 `
 
 const HeaderContainer = styled.div`
   font-size: 4rem;
-`
-const Header = styled.h1`
+  padding: 0 2rem;
 `
 
 export default App

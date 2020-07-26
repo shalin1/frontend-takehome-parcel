@@ -45,10 +45,10 @@ const SearchForm = ({performSearch}) => {
 }
 
 const FormContainer = styled.section`
+    flex-grow: 2;
     width: 100%;
     margin: 2rem auto;
     display: flex;
-    max-width: 40rem;
     > wired-input { 
         font-family: Comic Sans MS, Helvetica, sans-serif;
         font-size: 1.8rem;
@@ -60,8 +60,7 @@ const FormContainer = styled.section`
     > wired-button {
         height: 4.4rem;
         font-size: 2.25rem;
-        margin-top: 0.1rem;
-        margin-left: 0.3rem;
+        margin: 0.1rem -1rem 0.3rem 0.3rem;
         :hover {
             background-color: lightcoral;
             border-radius: 0.4rem;
