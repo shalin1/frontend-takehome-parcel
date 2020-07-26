@@ -10,7 +10,7 @@ const SearchForm = ({loading,performSearch}) => {
         // current property is refered to input element
         searchInput.current.focus();
     },[])
-    
+
     return(
         <FormContainer>
             <form onSubmit={performSearch}>

@@ -5,14 +5,14 @@ import SearchResults from './components/SearchResults'
 import api from './api'
 
 const App = () => {
-    const [searchResults,setSearchResults] = useState([])
     const [loading,setLoading] = useState(false)
+    const [searchResults,setSearchResults] = useState([])
 
     const performSearch = async event => {
         event.preventDefault()
         setLoading(true)
         const query = event.target[0].value
-        const res = await api.getGems(query)
+        const res = await api.getGems({ query })
         setSearchResults(res)
         setLoading(false)
     }
@@ -23,51 +23,46 @@ const App = () => {
         window.localStorage.setItem('savedGems', JSON.stringify(savedGems))
     },[savedGems])
 
-    const saveRecord = newRecord => setSavedGems(
-        savedGems.find(gem=>gem.sha===newRecord.sha) ? savedGems : [...savedGems,newRecord]
-    )
-
-    const unSaveRecord = recordToRemove => setSavedGems(
-        savedGems.filter(el => el.sha!==recordToRemove.sha)
-    )
+    const saveGem = gem => setSavedGems([...savedGems,gem])
+    const unSaveGem = gem => setSavedGems(savedGems.filter(({sha}) => sha!==gem.sha))
+    const toggleSave = gem => gem.isSaved ? unSaveGem(gem) : saveGem(gem)
 
     return (
         <AppContainer role='main' key='app'>
-            <h1>💎✨🔍😎
-                <br/>
-                Ruby Gem Search App
-            </h1>
-            <SearchForm
-                performSearch={performSearch}
-            />
+            <Header>Ruby Gem Search</Header>
+            <SearchForm performSearch={performSearch} />
             <div>
                 {savedGems.length===0 ? <></> :
                     <>
                         <h2>Saved</h2>
-                        {savedGems.map(gem=><p key={gem.sha}>{gem.name}</p>)}
+                        {savedGems.map(gem=><p key={gem.sha}>{gem.name} version {gem.version}</p>)}
                     </>
                 }
             </div>
             <SearchResults
-                gems={searchResults}
-                saveRecord={saveRecord}
-                unSaveRecord={unSaveRecord}
+                foundGems={searchResults}
                 loading={loading}
-                savedGems={searchResults}
+                savedGems={savedGems}
+                toggleSave={toggleSave}
             />
         </AppContainer>
     )
 }
 
 const AppContainer =styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;  
-  text-align: center;
-  background: papayawhip;
-  margin: 5px;
-  padding: 20px;
-  border-radius: 20px;
-  border: 2px dotted darkblue;
+    align-items: center;  
+    background: papayawhip;
+    border-radius: 20px;
+    border: 2px dotted darkblue;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    padding: 20px;
+    text-align: center;
 `
+
+const Header = styled.div`
+  font-size: 2rem;
+`
+
 export default App
