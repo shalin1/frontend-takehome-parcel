@@ -1,22 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SearchResults = ({records,saveRecord,unSaveRecord,loading,showResults}) => {
-    console.log('showResults', showResults)
-    if(!showResults) return <></>
+const SearchResults = ({records,saveRecord,unSaveRecord,loading,showLoading,submitted}) => {
+    if(!submitted) return <></>
     if(records.length===0) return <span>No results for your search!</span>
-    if(loading) return <p>loading...</p>
+    if(showLoading && loading) return <p>loading...</p>
     return(
-                    <>
-                        <h2>Search Results</h2>
-                        {records.map(record=>
-                            <SearchResult
-                                key={record.sha}
-                                record={record}
-                                saveRecord={saveRecord}
-                                unSaveRecord={unSaveRecord}
-                        />)}
-                    </>
+        <>
+            <h2>Search Results</h2>
+            {records.map(record=>
+                <SearchResult
+                    key={record.sha}
+                    record={record}
+                    saveRecord={saveRecord}
+                    unSaveRecord={unSaveRecord}
+                />
+            )}
+        </>
     )
 }
 

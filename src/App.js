@@ -12,7 +12,8 @@ const App = () => {
     const [displayedSearchResults,setDisplayedSearchResults] = useState([])
     const [searchResults,setSearchResults] = useState([])
     const [loading,setLoading] = useState(false)
-    const [showResults,setShowResults] = useState(false)
+    const [showLoading,setShowLoading] = useState(false)
+    const [submitted,setSubmitted] = useState(false)
 
     const handleSearch = async () => {
         setLoading(true)
@@ -23,8 +24,10 @@ const App = () => {
 
     const handleSearchButton = async (e) => {
         e.preventDefault()
-        setShowResults(true)
+        setSubmitted(true)
+        setShowLoading(true)
         setDisplayedSearchResults(searchResults)
+        setShowLoading(false)
     }
 
     useEffect( () => {
@@ -57,11 +60,12 @@ const App = () => {
                     }
                 </div>
                 <SearchResults
+                    submitted={submitted}
                     records={displayedSearchResults}
                     saveRecord={saveRecord}
                     unSaveRecord={unSaveRecord}
                     loading={loading}
-                    showResults={showResults}
+                    showLoading={showLoading}
                 />
             </div>
         </div>
