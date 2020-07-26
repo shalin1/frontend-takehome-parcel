@@ -51,12 +51,11 @@ const App = () => {
 
 const AppContainer =styled.div`
     align-items: center;  
-    background: papayawhip;
+    background: white;
     border-radius: 20px;
-    border: 2px dotted darkblue;
+    border: 2px dotted gray;
     display: flex;
     flex-direction: column;
-    margin: 5px;
     padding: 20px;
     text-align: center;
 `
