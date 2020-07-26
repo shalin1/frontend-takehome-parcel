@@ -8,7 +8,6 @@ const SearchForm = ({loading,performSearch}) => {
     const [query,setQuery] = useState('')
     const searchInput = useRef(null)
     useEffect(()=>{
-        // current property is refered to input element
         searchInput.current.focus();
     },[])
 
@@ -48,7 +47,6 @@ const FormContainer = styled.section`
     border-radius: 1rem;
     margin: 1.5rem;
     width: 100%;
-    padding: 2rem;
     max-width: 760px;
     display: flex;
     align-items:center;
@@ -64,7 +62,7 @@ const FormContainer = styled.section`
     wired-button {
         height: 4rem;
         font-size: 2rem;
-        margin-left: 0.3rem;
+        margin: 0 3rem 0 0.3rem;
         padding-top: 0.1rem;
         transition: all 2s;
         :hover {

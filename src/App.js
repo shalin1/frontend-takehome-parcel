@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import styled from 'styled-components'
-
+import { WiredCard } from 'wired-card'
+import { WiredDivider } from 'wired-divider'
 import SavedGems from './components/SavedGems'
 import SearchForm from './components/SearchForm'
 import SearchResults from './components/SearchResults'
@@ -12,7 +13,6 @@ const App = () => {
     const [querySubmitted,setQuerySubmitted] = useState(false)
 
     const performSearch = async query => {
-        event.preventDefault()
         console.log('query', query)
         setQuerySubmitted(true)
         setLoading(true)
@@ -33,20 +33,22 @@ const App = () => {
 
     return (
         <AppContainer role='main' key='app'>
-            <Header>Ruby  Gems </Header>
-            <Header> Search  App!</Header>
-            <SearchForm performSearch={performSearch} loading={loading} />
-            <Columns showResults={querySubmitted}>
-                <SavedGems gems={savedGems}/>
-                {querySubmitted &&
-                <SearchResults
-                    foundGems={searchResults}
-                    loading={loading}
-                    savedGems={savedGems}
-                    toggleSave={toggleSave}
-                />
-                }
-            </Columns>
+            <wired-card elevation={3}>
+                <Header>Ruby  Gems </Header>
+                <Header> Search  App!</Header>
+                <SearchForm performSearch={performSearch} loading={loading} />
+                <Columns showResults={querySubmitted}>
+                    <SavedGems gems={savedGems}/>
+                    {querySubmitted &&
+                    <SearchResults
+                        foundGems={searchResults}
+                        loading={loading}
+                        savedGems={savedGems}
+                        toggleSave={toggleSave}
+                    />
+                    }
+                </Columns>
+            </wired-card>
         </AppContainer>
     )
 }
@@ -63,16 +65,22 @@ const Columns = styled.section`
   }
 `
 
-const AppContainer =styled.div`
+const AppContainer =styled.section`
     align-items: center;  
     background: white;
-    border-radius: 20px;
-    border: 2px dotted gray;
     display: flex;
     flex-direction: column;
     margin: 2rem;
-    padding: 1rem;
     text-align: center;
+    wired-card {
+        align-items: center;
+        border: 1px solid red;
+        justify-content: flex-start;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        width: 100%;
+    }
 `
 
 const Header = styled.h1`
