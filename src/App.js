@@ -1,39 +1,27 @@
 import React, {useState,useEffect} from 'react'
-import SearchInput from './components/SearchInput'
+import SearchForm from './components/SearchForm'
 import SearchResults from './components/SearchResults'
 import api from './api'
 
 const App = () => {
-    const initialSavedGems = JSON.parse(window.localStorage.getItem('savedGems')) || []
-    const [savedGems,setSavedGems] = useState(initialSavedGems)
-    useEffect(()=>{window.localStorage.setItem('savedGems', JSON.stringify(savedGems))},[savedGems])
-
-    const [query,setQuery] = useState('')
     const [searchResults,setSearchResults] = useState([])
-    const [displayedSearchResults,setDisplayedSearchResults] = useState([])
     const [loading,setLoading] = useState(false)
-    const [showLoading,setShowLoading] = useState(false)
-    const [submitted,setSubmitted] = useState(false)
 
-    const handleSearch = async () => {
+    const performSearch = async event => {
+        event.preventDefault()
         setLoading(true)
+        const query = event.target[0].value
         const res = await api.getGems(query)
         setSearchResults(res)
         setLoading(false)
     }
 
-    const handleSearchButton = async (e) => {
-        e.preventDefault()
-        setSubmitted(true)
-        setShowLoading(true)
-        setDisplayedSearchResults(searchResults)
-        setShowLoading(false)
-    }
+    const initialSavedGems = JSON.parse(window.localStorage.getItem('savedGems')) || []
+    const [savedGems,setSavedGems] = useState(initialSavedGems)
+    useEffect(()=>{
+        window.localStorage.setItem('savedGems', JSON.stringify(savedGems))
+    },[savedGems])
 
-    useEffect( () => {
-        handleSearch({ query })
-        return(()=>{})
-    }, [query])
 
     const saveRecord = newRecord => setSavedGems(
         savedGems.find(gem=>gem.sha===newRecord.sha) ? savedGems : [...savedGems,newRecord]
@@ -47,10 +35,9 @@ const App = () => {
         <div role='main' key='app'>
             <h1>💎✨🔍😎 Ruby Gem Search App</h1>
             <div>
-                <form onSubmit={handleSearchButton}>
-                    <SearchInput value={query} onChange={setQuery}/>
-                    <input type='submit' value="🔍Search"/>
-                </form>
+                <SearchForm
+                    performSearch={performSearch}
+                />
                 <div>
                     {savedGems.length===0 ? <></> :
                         <>
@@ -60,13 +47,11 @@ const App = () => {
                     }
                 </div>
                 <SearchResults
-                    submitted={submitted}
-                    records={displayedSearchResults}
+                    gems={searchResults}
                     saveRecord={saveRecord}
                     unSaveRecord={unSaveRecord}
                     loading={loading}
-                    showLoading={showLoading}
-                    savedGems={savedGems}
+                    savedGems={searchResults}
                 />
             </div>
         </div>

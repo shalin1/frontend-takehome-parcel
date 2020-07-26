@@ -1,27 +1,36 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components'
 import PropTypes from 'prop-types';
 
-const SearchForm = ({handleSearchSubmit, setQuery, query}) => (
-    <FormContainer>
-        <form onSubmit={handleSearchSubmit}>
-            <SearchBox
-                value={query}
-                onChange={e=>setQuery(e.target.value)}
-                placeholder="Search Gems..."
-                type="search"
-                aria-label="Search"
-            />
-            <input type='submit' value="🔍Search"/>
-        </form>
-    </FormContainer>
-);
+const SearchForm = ({loading,performSearch}) => {
+    const [query,setQuery] = useState('')
+    const isSubmitDisabled = loading || query.length===0
+
+    return(
+        <FormContainer>
+            <form onSubmit={performSearch}>
+                <SearchBox
+                    value={query}
+                    onChange={event => setQuery(event.target.value)}
+                    placeholder="Search Gems..."
+                    type="search"
+                    aria-label="Search"
+                />
+                <Submit
+                    disabled={isSubmitDisabled}
+                    type='submit'
+                    value="🔍Search"
+                />
+            </form>
+        </FormContainer>
+    );
+}
 
 const FormContainer = styled.section`
-    background-color: #52ACFF;
-    background-image: linear-gradient(180deg, #52ACFF 25%, #FFE32C 100%);
+    background-color: palegoldenrod;
     border-radius: 17px;
     padding: 20px;
+    margin: 10px;
 `
 
 const SearchBox = styled.input`
@@ -30,9 +39,10 @@ const SearchBox = styled.input`
   width: 100%;
 `
 
+const Submit = styled.input``
+
 SearchForm.propTypes = {
-    handleSearchSubmit: PropTypes.func,
-    setQuery: PropTypes.func.isRequired,
-    query: PropTypes.string.isRequired
+    loading: PropTypes.bool,
+    performSearch: PropTypes.func,
 }
 export default SearchForm;

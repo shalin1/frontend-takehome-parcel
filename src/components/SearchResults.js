@@ -5,17 +5,19 @@ const SearchResults = ({records,saveRecord,unSaveRecord,savedGems,loading,showLo
     if(!submitted) return <></>
     if(records.length===0) return <span>No results for your search!</span>
     if(showLoading && loading) return <p>loading...</p>
-    const savedGemShas = savedGems.map(({sha})=>sha)
+    const gems = records.map(record=>(
+        {...record, isSaved: savedGems.indexOf(el=>el.sha===record.sha)!==-1}
+    ))
 
     return(
         <>
             <h2>Search Results</h2>
-            {records.map(record=>{
-                const isNotSaved = savedGemShas.indexOf(record.sha) === -1
+            {gems.map(gem=>{
+                const isNotSaved = savedGemShas.indexOf(gem.sha) === -1
                 return (
                     <SearchResult
-                        key={record.sha}
-                        record={record}
+                        key={gem.sha}
+                        record={gem}
                         saveRecord={saveRecord}
                         unSaveRecord={unSaveRecord}
                         isNotSaved={isNotSaved}
