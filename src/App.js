@@ -8,10 +8,10 @@ const App = () => {
     const [loading,setLoading] = useState(false)
     const [searchResults,setSearchResults] = useState([])
 
-    const performSearch = async event => {
+    const performSearch = async query => {
         event.preventDefault()
+        console.log('query', query)
         setLoading(true)
-        const query = event.target[0].value
         const res = await api.getGems({ query })
         setSearchResults(res)
         setLoading(false)

@@ -41,7 +41,10 @@
     "parcel": "^1.9.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "wired-button": "^2.1.0",
+    "wired-elements": "^2.1.2",
+    "wired-input": "^2.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
