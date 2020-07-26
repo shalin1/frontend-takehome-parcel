@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SearchResults = ({records,saveRecord,unSaveRecord,savedGems,loading,showLoading,submitted}) => {
+const SearchResults = ({records,saveRecord,unSaveRecord,savedGems,loading,showLoading,submitted,toggleSaveGem}) => {
     if(!submitted) return <></>
     if(records.length===0) return <span>No results for your search!</span>
     if(showLoading && loading) return <p>loading...</p>
     const savedGemShas = savedGems.map(({sha})=>sha)
 
+    console.log('toggleSaveGem', toggleSaveGem)
     return(
         <>
             <h2>Search Results</h2>
@@ -18,7 +19,7 @@ const SearchResults = ({records,saveRecord,unSaveRecord,savedGems,loading,showLo
                         record={record}
                         saveRecord={saveRecord}
                         unSaveRecord={unSaveRecord}
-                        isNotSaved={isNotSaved}
+                        toggleSaveGem={toggleSaveGem}
                     />
                 )
             })}
@@ -26,10 +27,11 @@ const SearchResults = ({records,saveRecord,unSaveRecord,savedGems,loading,showLo
     )
 }
 
-const SearchResult = ({record,saveRecord,unSaveRecord,isNotSaved}) => {
+const SearchResult = ({record,saveRecord,unSaveRecord,isNotSaved,toggleSaveGem}) => {
     const {
         downloads,
         info,
+        isSaved,
         name,
         version,
     } = record
@@ -46,36 +48,31 @@ const SearchResult = ({record,saveRecord,unSaveRecord,isNotSaved}) => {
                 <br/>
                 <p>downloads</p>
             </div>
-            {isNotSaved ?
-                <button onClick={()=>saveRecord(record)}>
-                    💾 Save Gem
-                </button>
-                :
-                <button onClick={()=>unSaveRecord(record)}>
-                    🚫 UnSave Gem
+                <button onClick={()=>toggleSaveGem(record)}>
+                    {record.isSaved ? <p>🚫 UnSave Gem</p> : <p>💾 Save Gem</p>}
                 </button>
             }
         </>
     )
 }
 
-SearchResults.propTypes = {
-    records: PropTypes.arrayOf(
-        PropTypes.shape({
-            authors: PropTypes.string,
-            documentation_uri: PropTypes.string,
-            downloads: PropTypes.number,
-            gem_uri: PropTypes.string,
-            homepage_uri: PropTypes.string,
-            info: PropTypes.string,
-            licenses: PropTypes.arrayOf(PropTypes.string),
-            name: PropTypes.string,
-            project_uri: PropTypes.string,
-            sha: PropTypes.string,
-            version: PropTypes.string,
-            version_downloads: PropTypes.number,
-        })
-    ),
-}
+// SearchResults.propTypes = {
+//     records: PropTypes.arrayOf(
+//         PropTypes.shape({
+//             authors: PropTypes.string,
+//             documentation_uri: PropTypes.string,
+//             downloads: PropTypes.number,
+//             gem_uri: PropTypes.string,
+//             homepage_uri: PropTypes.string,
+//             info: PropTypes.string,
+//             licenses: PropTypes.arrayOf(PropTypes.string),
+//             name: PropTypes.string,
+//             project_uri: PropTypes.string,
+//             sha: PropTypes.string,
+//             version: PropTypes.string,
+//             version_downloads: PropTypes.number,
+//         })
+//     ),
+// }
 
 export default SearchResults
