@@ -7,8 +7,15 @@ html {
     box-sizing: inherit;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+body, p, ol, ul {
     margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: Comic Sans MS, Open Sans MS, Helvetica, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-family: 'Homemade Apple', Comic Sans MS, Helvetica, sans-serif;
     padding: 0;
     font-weight: normal;
 }

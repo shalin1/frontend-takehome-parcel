@@ -63,7 +63,6 @@ const AppContainer =styled.div`
 
 const Header = styled.h1`
   font-size: 3rem;
-  font-family: 'Homemade Apple', Comic Sans MS, Helvetica, sans-serif;
   text-transform:lowercase;
   
 `
