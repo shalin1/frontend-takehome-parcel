@@ -15,8 +15,7 @@ const api = {
         } catch(err) {
             console.log('error! ', err)
         }
-    },
-
+    }
 }
 
 export default api

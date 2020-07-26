@@ -1,22 +1,12 @@
 import React, {useState,useEffect} from 'react'
 import SearchInput from './components/SearchInput'
 import SearchResults from './components/SearchResults'
-import SavedGems from './components/SavedGems'
 import api from './api'
 
 const App = () => {
     const initialSavedGems = JSON.parse(window.localStorage.getItem('savedGems')) || []
     const [savedGems,setSavedGems] = useState(initialSavedGems)
     useEffect(()=>{window.localStorage.setItem('savedGems', JSON.stringify(savedGems))},[savedGems])
-    const isSaved = gem => savedGems.indexOf(el => el.sha === gem.sha) !== -1
-    const toggleSaveGem = gem => {
-        setDisplayedSearchResults(displayedSearchResults.map(gem => ( {...gem, isSaved: isSaved(gem)} )))
-        setSavedGems(
-            gem.isSaved
-                ? savedGems.filter(el => el.sha===gem.sha)
-                : [...savedGems,{...gem,isSaved:true}]
-        )
-    }
 
     const [query,setQuery] = useState('')
     const [searchResults,setSearchResults] = useState([])
@@ -45,7 +35,6 @@ const App = () => {
         return(()=>{})
     }, [query])
 
-
     const saveRecord = newRecord => setSavedGems(
         savedGems.find(gem=>gem.sha===newRecord.sha) ? savedGems : [...savedGems,newRecord]
     )
@@ -62,12 +51,17 @@ const App = () => {
                     <SearchInput value={query} onChange={setQuery}/>
                     <input type='submit' value="🔍Search"/>
                 </form>
-                <SavedGems gems={savedGems}>
-                </SavedGems>
+                <div>
+                    {savedGems.length===0 ? <></> :
+                        <>
+                            <h2>Saved</h2>
+                            {savedGems.map(gem=><p key={gem.sha}>{gem.name}</p>)}
+                        </>
+                    }
+                </div>
                 <SearchResults
                     submitted={submitted}
                     records={displayedSearchResults}
-                    toggleSaveGem={toggleSaveGem}
                     saveRecord={saveRecord}
                     unSaveRecord={unSaveRecord}
                     loading={loading}
