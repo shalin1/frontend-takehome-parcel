@@ -5,10 +5,11 @@ import { WiredInput } from "wired-input"
 import { WiredButton } from "wired-button"
 
 const SearchForm = ({loading,performSearch}) => {
-    const [query,setQuery] = useState('')
+    const [query,setQuery] = useState('Rails')
     const searchInput = useRef(null)
     useEffect(()=>{
         searchInput.current.focus();
+        handleSubmit({preventDefault: ()=>{}})
     },[])
 
     const handleChange = e => {
