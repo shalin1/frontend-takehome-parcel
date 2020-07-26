@@ -72,9 +72,8 @@ const AppContainer =styled.section`
     flex-direction: column;
     margin: 2rem;
     text-align: center;
-    wired-card {
+    > wired-card {
         align-items: center;
-        border: 1px solid red;
         justify-content: flex-start;
         display: flex;
         flex-direction: column;

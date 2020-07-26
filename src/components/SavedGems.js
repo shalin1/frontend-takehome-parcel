@@ -35,9 +35,9 @@ const SavedGemsContainer = styled.section`
         width:255px;
     }
 
-    wired-card {
-    width:100%;
-    padding: 1rem 2.8rem 1.5rem;
+    > wired-card {
+        width: 10rem;
+        padding: 1rem 2.8rem 1.5rem;
     }
 `
 

@@ -51,7 +51,7 @@ const FormContainer = styled.section`
     display: flex;
     align-items:center;
     justify-content:center;
-    wired-input { 
+    > wired-input { 
         font-family: Comic Sans MS, Helvetica, sans-serif;
         font-size: 1.45rem;
         height: 4rem;
@@ -59,7 +59,7 @@ const FormContainer = styled.section`
         text-transform: lowercase;
         transition: all 2s;
     }
-    wired-button {
+    > wired-button {
         height: 4rem;
         font-size: 2rem;
         margin: 0 3rem 0 0.3rem;
