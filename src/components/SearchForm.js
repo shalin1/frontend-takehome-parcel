@@ -30,7 +30,7 @@ const SearchForm = ({loading,performSearch}) => {
                 ref={searchInput}
                 name="Search Input"
                 type="text"
-                value={` ${query}`}
+                value={query}
             />
             <wired-button
                 onClick={handleSubmit}
