@@ -14,7 +14,7 @@ const SearchForm = ({loading,performSearch}) => {
     },[])
 
     const handleChange = e => {
-        setQuery(e.target.value || ' ')
+        setQuery(e.target.value)
         if (e.key === 'Enter') {handleSubmit(e)}
     }
 
@@ -30,13 +30,13 @@ const SearchForm = ({loading,performSearch}) => {
                 onKeyUp={handleChange}
                 placeholder="Search Gems..."
                 ref={searchInput}
-                type="search"
-                value={' ' + query}
+                type="text"
             />
             <wired-button
                 onClick={handleSubmit}
                 disabled={isSubmitDisabled}
-                elevation={5}
+                elevation={4}
+                id="submit-button"
             >
                 <span> 🔍 </span>
             </wired-button>
@@ -46,23 +46,24 @@ const SearchForm = ({loading,performSearch}) => {
 
 const FormContainer = styled.section`
     border-radius: 1rem;
-    padding: 2rem;
-    margin: 1rem;
+    margin: 0 1rem;
     width: 90%;
     max-width: 760px;
     display: flex;
     align-items:center;
     justify-content:center;
-    wired-input {
+    wired-input { 
         font-family: 'Homemade Apple', Comic Sans MS, Helvetica, sans-serif;
         font-size: 1.35rem;
+        height: 4rem;
         padding: 0.4rem 0 0 0.8rem;
         width: 80%;
-        text-transform:lowercase;
+        text-transform: lowercase;
         transition: all 3s;
     }
     wired-button {
-        font-size: 2.2rem;
+        height: 4rem;
+        font-size: 2rem;
         margin-left: 0.3rem;
         padding-top: 0.1rem;
         transition: all 3s;

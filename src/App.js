@@ -56,7 +56,8 @@ const AppContainer =styled.div`
     border: 2px dotted gray;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    margin: 2rem;
+    padding: 1rem;
     text-align: center;
 `
 
