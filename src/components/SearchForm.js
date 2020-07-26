@@ -54,7 +54,7 @@ const FormContainer = styled.section`
     align-items:center;
     justify-content:center;
     wired-input {
-        font-family: 'Homemade Apple', cursive;
+        font-family: 'Homemade Apple', Comic Sans MS, Helvetica, sans-serif;
         font-size: 1.35rem;
         padding: 0.4rem 0 0 0.8rem;
         width: 80%;
