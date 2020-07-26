@@ -8,16 +8,16 @@ const App = () => {
     const [savedGems,setSavedGems] = useState(initialSavedGems)
     useEffect(()=>{window.localStorage.setItem('savedGems', JSON.stringify(savedGems))},[savedGems])
 
-    const [searchTerm,setSearchTerm] = useState('')
-    const [displayedSearchResults,setDisplayedSearchResults] = useState([])
+    const [query,setQuery] = useState('')
     const [searchResults,setSearchResults] = useState([])
+    const [displayedSearchResults,setDisplayedSearchResults] = useState([])
     const [loading,setLoading] = useState(false)
     const [showLoading,setShowLoading] = useState(false)
     const [submitted,setSubmitted] = useState(false)
 
     const handleSearch = async () => {
         setLoading(true)
-        const res = await api.getGems(searchTerm)
+        const res = await api.getGems(query)
         setSearchResults(res)
         setLoading(false)
     }
@@ -31,9 +31,9 @@ const App = () => {
     }
 
     useEffect( () => {
-        handleSearch(searchTerm)
+        handleSearch({ query })
         return(()=>{})
-    }, [searchTerm])
+    }, [query])
 
     const saveRecord = newRecord => setSavedGems(
         savedGems.find(gem=>gem.sha===newRecord.sha) ? savedGems : [...savedGems,newRecord]
@@ -48,7 +48,7 @@ const App = () => {
             <h1>💎✨🔍😎 Ruby Gem Search App</h1>
             <div>
                 <form onSubmit={handleSearchButton}>
-                    <SearchInput value={searchTerm} onChange={setSearchTerm}/>
+                    <SearchInput value={query} onChange={setQuery}/>
                     <input type='submit' value="🔍Search"/>
                 </form>
                 <div>
