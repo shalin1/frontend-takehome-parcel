@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { WiredInput } from "wired-input"
 import { WiredButton } from "wired-button"
 
-const SearchForm = ({loading,performSearch}) => {
+const SearchForm = ({performSearch}) => {
     const [query,setQuery] = useState('Rails')
     const searchInput = useRef(null)
     useEffect(()=>{
@@ -56,7 +56,6 @@ const FormContainer = styled.section`
         padding: 0.6rem 1rem 0;
         text-transform: lowercase;
         width:100%;
-        
     }
     > wired-button {
         height: 4.4rem;
