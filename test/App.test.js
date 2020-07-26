@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
+import axios from 'axios'
 import App from '../src/App';
 import SearchInput from '../src/components/SearchInput';
 
@@ -34,5 +35,28 @@ describe('App', () => {
         const wrapper = mount(<App/>)
         wrapper.find('input').simulate('change', { target: { value: 'new value' } })
         expect(wrapper.find('input').props().value).toBe('new value')
+    })
+
+    describe('calling the API', ()=>{
+        beforeEach(()=>{
+            const gems = [{"name": "fukuzatsu"},{"name": "uz"}]
+            const res = [{ data: gems }]
+            jest.mock('axios')
+            axios.get.mockImplementation(() => Promise.resolve(res))
+        })
+        describe('when the search input has not been updated', () => {
+            it('does not call our API', ()=>{
+                mount(<App/>)
+                expect(axios).not.toHaveBeenCalled()
+            })
+        })
+        describe('when the search input has been updated', () => {
+            it('calls our API to search for some Ruby Gems', () => {
+                const wrapper = mount(<App/>)
+                wrapper.find('input').simulate('change', { target: { value: 'new value' } })
+
+            })
+        })
+
     })
 });
