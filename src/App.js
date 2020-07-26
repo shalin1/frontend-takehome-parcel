@@ -60,8 +60,11 @@ const AppContainer =styled.div`
     text-align: center;
 `
 
-const Header = styled.div`
-  font-size: 2rem;
+const Header = styled.h1`
+  font-size: 3rem;
+  font-family: 'Homemade Apple', cursive;
+  text-transform:lowercase;
+  
 `
 
 export default App

@@ -53,15 +53,19 @@ const FormContainer = styled.section`
     display: flex;
     align-items:center;
     justify-content:center;
-    > wired-input {
-        height: 2.2rem;    
-        padding: 0.55rem 0 0 0.5rem;
-        width: 80%;
-    }
-    > wired-button {
+    wired-input {
+        font-family: 'Homemade Apple', cursive;
         font-size: 1.35rem;
+        padding: 0.4rem 0 0 0.8rem;
+        width: 80%;
+        text-transform:lowercase;
+        transition: all 3s;
+    }
+    wired-button {
+        font-size: 2.2rem;
         margin-left: 0.3rem;
         padding-top: 0.1rem;
+        transition: all 3s;
     }
 `
 
