@@ -29,6 +29,7 @@ const SearchResult = ({gem,toggleSave}) => {
         version,
     } = gem
 
+    const buttonText = isSaved ? <span>🚫 UnSave Gem</span> : <span>💾 Save Gem</span>
     return(
         <>
             <div>
@@ -41,12 +42,9 @@ const SearchResult = ({gem,toggleSave}) => {
                 <br/>
                 <p>downloads</p>
             </div>
-                <button onClick={()=>toggleSave(gem)}>
-                    {isSaved ?
-                        <span>🚫 UnSave Gem</span> :
-                        <span>💾 Save Gem</span>
-                    }
-                </button>
+            <button onClick={()=>toggleSave(gem)}>
+                {buttonText}
+            </button>
 
         </>
     )
