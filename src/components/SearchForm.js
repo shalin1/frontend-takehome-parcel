@@ -27,7 +27,6 @@ const SearchForm = ({loading,performSearch}) => {
 }
 
 const FormContainer = styled.section`
-    background-color: palegoldenrod;
     border-radius: 17px;
     padding: 20px;
     margin: 10px;
