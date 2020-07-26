@@ -44,27 +44,21 @@ const SearchForm = ({loading,performSearch}) => {
 }
 
 const FormContainer = styled.section`
-    border-radius: 1rem;
-    margin: 1.5rem;
     width: 100%;
-    max-width: 760px;
+    margin: 5.5rem auto;
     display: flex;
-    align-items:center;
-    justify-content:center;
+    max-width: 800px;
     > wired-input { 
         font-family: Comic Sans MS, Helvetica, sans-serif;
         font-size: 1.45rem;
         height: 4rem;
         width:100%;
         text-transform: lowercase;
-        transition: all 2s;
     }
     > wired-button {
-        height: 4rem;
-        font-size: 2rem;
-        margin: 0 3rem 0 0.3rem;
-        padding-top: 0.1rem;
-        transition: all 2s;
+        height: 4.4rem;
+        font-size: 2.15rem;
+        margin-left: 0.3rem;
         :hover {
             background-color: lightcoral;
             border-radius: 0.4rem;

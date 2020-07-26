@@ -34,8 +34,10 @@ const App = () => {
     return (
         <AppContainer role='main' key='app'>
             <wired-card elevation={3}>
-                <Header>Ruby  Gems </Header>
-                <Header> Search  App!</Header>
+                <HeaderContainer>
+                    <h1>Diggr™</h1>
+                    <h2>A Ruby Gems Search Client</h2>
+                </HeaderContainer>
                 <SearchForm performSearch={performSearch} loading={loading} />
                 <Columns showResults={querySubmitted}>
                     <SavedGems gems={savedGems}/>
@@ -66,25 +68,19 @@ const Columns = styled.section`
 `
 
 const AppContainer =styled.section`
-    align-items: center;  
     background: white;
-    display: flex;
-    flex-direction: column;
     margin: 2rem;
     text-align: center;
     > wired-card {
-        align-items: center;
-        justify-content: flex-start;
-        display: flex;
-        flex-direction: column;
         padding: 2rem;
         width: 100%;
     }
 `
 
-const Header = styled.h1`
+const HeaderContainer = styled.div`
   font-size: 4rem;
-  
+`
+const Header = styled.h1`
 `
 
 export default App
