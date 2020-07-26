@@ -43,6 +43,8 @@
     "react-dom": "^16.13.1",
     "styled-components": "^5.1.1",
     "wired-button": "^2.1.0",
+    "wired-card": "^2.1.0",
+    "wired-divider": "^2.1.0",
     "wired-elements": "^2.1.2",
     "wired-input": "^2.1.1"
   },

@@ -47,17 +47,17 @@ const SearchForm = ({loading,performSearch}) => {
 const FormContainer = styled.section`
     border-radius: 1rem;
     margin: 1.5rem;
-    width: 90%;
+    width: 100%;
+    padding: 2rem;
     max-width: 760px;
     display: flex;
     align-items:center;
     justify-content:center;
     wired-input { 
-        font-family: 'Homemade Apple', Comic Sans MS, Helvetica, sans-serif;
+        font-family: Comic Sans MS, Helvetica, sans-serif;
         font-size: 1.45rem;
         height: 4rem;
-        padding: 0.2rem 0 0 0.8rem;
-        width: 80%;
+        width:100%;
         text-transform: lowercase;
         transition: all 2s;
     }

@@ -15,7 +15,7 @@ body, p, ol, ul {
 }
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    font-family: 'Homemade Apple', Comic Sans MS, Helvetica, sans-serif;
+    font-family: Comic Sans MS, Helvetica, sans-serif;
     padding: 0;
     font-weight: normal;
 }
