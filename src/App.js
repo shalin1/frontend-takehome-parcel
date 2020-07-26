@@ -4,11 +4,14 @@ import SearchResults from './components/SearchResults'
 import api from './api'
 
 const App = () => {
+    const initialSavedGems = JSON.parse(window.localStorage.getItem('savedGems')) || []
+    const [savedGems,setSavedGems] = useState(initialSavedGems)
+    useEffect(()=>{window.localStorage.setItem('savedGems', JSON.stringify(savedGems))},[savedGems])
+
     const [searchTerm,setSearchTerm] = useState('')
     const [displayedSearchResults,setDisplayedSearchResults] = useState([])
     const [searchResults,setSearchResults] = useState([])
     const [loading,setLoading] = useState(false)
-    const [savedGems,setSavedGems] = useState([])
     const [showResults,setShowResults] = useState(false)
 
     const handleSearch = async () => {
