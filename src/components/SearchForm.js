@@ -29,7 +29,9 @@ const SearchForm = ({loading,performSearch}) => {
                 onKeyUp={handleChange}
                 placeholder="Search Gems..."
                 ref={searchInput}
+                name="Search Input"
                 type="text"
+                value={` ${query}`}
             />
             <wired-button
                 onClick={handleSubmit}
@@ -44,7 +46,7 @@ const SearchForm = ({loading,performSearch}) => {
 
 const FormContainer = styled.section`
     border-radius: 1rem;
-    margin: 0 1rem;
+    margin: 1.5rem;
     width: 90%;
     max-width: 760px;
     display: flex;
@@ -52,9 +54,9 @@ const FormContainer = styled.section`
     justify-content:center;
     wired-input { 
         font-family: 'Homemade Apple', Comic Sans MS, Helvetica, sans-serif;
-        font-size: 1.35rem;
+        font-size: 1.45rem;
         height: 4rem;
-        padding: 0.4rem 0 0 0.8rem;
+        padding: 0.2rem 0 0 0.8rem;
         width: 80%;
         text-transform: lowercase;
         transition: all 2s;
