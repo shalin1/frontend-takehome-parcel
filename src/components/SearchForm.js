@@ -35,7 +35,7 @@ const SearchForm = ({performSearch}) => {
             />
             <wired-button
                 onClick={handleSubmit}
-                elevation={4}
+                elevation={3}
                 id="submit-button"
             >
                 <span> 🔍 </span>
@@ -59,9 +59,9 @@ const FormContainer = styled.section`
         width:100%;
     }
     > wired-button {
-        height: 4.4rem;
-        font-size: 2.25rem;
-        margin: 0.1rem -1rem 0.3rem 0.3rem;
+        height: 4rem;
+        font-size: 2.05rem;
+        margin-top: 0.17rem;
         :hover {
             background-color: lightcoral;
             border-radius: 0.4rem;
