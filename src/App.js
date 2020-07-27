@@ -35,7 +35,7 @@ const App = () => {
             <wired-card elevation={3}>
                 <Columns showResults={querySubmitted}>
                     <HeaderContainer>
-                        <h1>Diggr</h1>
+                        <SiteTitle>GemDiggr™</SiteTitle>
                         <h2>A Ruby Gems Search Client</h2>
                         <SearchForm performSearch={performSearch} loading={loading} />
                     </HeaderContainer>
@@ -65,6 +65,9 @@ const Columns = styled.section`
         justify-content: space-around;
         align-items: center;
     }
+`
+
+const SiteTitle = styled.h1`
 `
 
 const AppContainer =styled.section`
