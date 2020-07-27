@@ -71,13 +71,9 @@ const AppContainer =styled.section`
     background: white;
     margin: 0.5rem;
     text-align: center;
-    @media (min-width:420px) {
-      margin: 2rem;
-    }
     > wired-card {
         padding: 2rem 4rem;
         width: 100%;
-        max-width: 1024px;
     }
 `
 
