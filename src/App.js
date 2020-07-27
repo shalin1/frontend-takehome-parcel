@@ -35,7 +35,8 @@ const App = () => {
             <wired-card elevation={3}>
                 <Columns showResults={querySubmitted}>
                     <HeaderContainer>
-                        <SiteTitle>GemDiggr™</SiteTitle>
+                        <SiteTitle>GemDiggr</SiteTitle>
+                        <p>💎</p>
                         <h2>A Ruby Gems Search Client</h2>
                         <SearchForm performSearch={performSearch} loading={loading} />
                     </HeaderContainer>
@@ -58,12 +59,12 @@ const Columns = styled.section`
     display: flex;
     width: 100%;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
         flex-direction: row-reverse;
         justify-content: space-around;
-        align-items: center;
+        align-items: flex-start;
     }
 `
 
@@ -85,8 +86,8 @@ const HeaderContainer = styled.div`
   padding: 0;
   width: 100%;
      margin:0;
-  @media (min-width: 768px) {
-  margin: 7rem 2rem;
+  @media (min-width: 1024px) {
+    margin: 7rem 4rem;
   }
 `
 

@@ -38,6 +38,9 @@ const SavedGemsContainer = styled.section`
     min-width: 15rem;
     max-width: 18rem;
     margin: 1.5rem;
+    @media (min-width:1024px) {
+      margin: 2rem;
+    }
     > wired-card {
         width: 100%;
         padding:0;  

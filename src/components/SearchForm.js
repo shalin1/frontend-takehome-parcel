@@ -60,8 +60,8 @@ const FormContainer = styled.section`
     }
     > wired-button {
         height: 4rem;
-        font-size: 2.05rem;
-        margin-top: 0.17rem;
+        font-size: 2.07rem;
+        margin: 0.16rem 0 0 -0.2rem;
         :hover {
             background-color: lightcoral;
             border-radius: 0.4rem;
