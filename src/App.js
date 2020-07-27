@@ -63,7 +63,6 @@ const Columns = styled.section`
   align-items: center;
   @media (min-width: 768px) {
     flex-direction: row-reverse;
-    
   }
 `
 

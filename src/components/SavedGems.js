@@ -35,18 +35,18 @@ const SavedGems = ({gems,unSaveGem}) => {
 const SavedGemsContainer = styled.section`
     text-align: center;
     width: 100%;
-    min-width: 12rem;
+    min-width: 17rem;
     > wired-card {
         width: 100%;
-       padding:0;  
+        padding:0;  
         text-align: left;
     }
 `
 const InnerContainer = styled.div`
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 const Columns = styled.section`
