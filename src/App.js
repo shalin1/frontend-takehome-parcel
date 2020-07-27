@@ -57,12 +57,14 @@ const App = () => {
 
 const Columns = styled.section`
   display: flex;
-  justify-content: center;
   width: 100%;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   @media (min-width: 768px) {
     flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: flex-start;
   }
 `
 
@@ -74,7 +76,7 @@ const AppContainer =styled.section`
       margin: 2rem;
     }
     > wired-card {
-        padding: 1rem 4rem;
+        padding: 2rem 4rem;
         width: 100%;
         max-width: 1024px;
     }
@@ -82,7 +84,7 @@ const AppContainer =styled.section`
 
 const HeaderContainer = styled.div`
   font-size: 4rem;
-  padding: 0 2rem;
+  padding: 0;
 `
 
 export default App
