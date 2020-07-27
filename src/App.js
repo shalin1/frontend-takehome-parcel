@@ -34,12 +34,12 @@ const App = () => {
     return (
         <AppContainer role='main' key='app'>
             <wired-card elevation={3}>
-                <HeaderContainer>
-                    <h1>Diggr</h1>
-                    <h2>A Ruby Gems Search Client</h2>
-                </HeaderContainer>
                 <Columns showResults={querySubmitted}>
-                    <SearchForm performSearch={performSearch} loading={loading} />
+                        <HeaderContainer>
+                            <h1>Diggr</h1>
+                            <h2>A Ruby Gems Search Client</h2>
+                        <SearchForm performSearch={performSearch} loading={loading} />
+                        </HeaderContainer>
                     <SavedGems gems={savedGems} unSaveGem={unSaveGem}/>
                 </Columns>
                 {querySubmitted &&
@@ -59,10 +59,10 @@ const Columns = styled.section`
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: 100%;
   flex-direction: column;
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     flex-direction: row-reverse;
+    
   }
 `
 

@@ -47,6 +47,7 @@ const SearchForm = ({performSearch}) => {
 const FormContainer = styled.section`
     flex-grow: 2;
     width: 100%;
+    min-width: 15rem;
     margin: 2rem auto;
     display: flex;
     > wired-input { 

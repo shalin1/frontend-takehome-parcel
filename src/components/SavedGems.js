@@ -13,6 +13,7 @@ const SavedGems = ({gems,unSaveGem}) => {
                 <InnerContainer>
                     <h3>Saved Gems</h3>
                     <br/>
+                    <Columns>
                     {gems.length===0
                         ? <p>No gems saved yet!</p>
                         : <>
@@ -24,6 +25,7 @@ const SavedGems = ({gems,unSaveGem}) => {
                             )}
                         </>
                     }
+                    </Columns>
                 </InnerContainer>
             </wired-card>
         </SavedGemsContainer>
@@ -31,11 +33,9 @@ const SavedGems = ({gems,unSaveGem}) => {
 };
 
 const SavedGemsContainer = styled.section`
-    flex-grow: 1;
     text-align: center;
-    margin-bottom: 2rem;
+    margin: 2rem;
     width: 100%;
-    max-width: 20rem;
     > wired-card {
         width: 100%;
         text-align: left;
@@ -46,7 +46,9 @@ const InnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+`
+
+const Columns = styled.section`
 `
 
 SavedGems.propTypes = {
