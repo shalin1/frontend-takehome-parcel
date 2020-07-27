@@ -1,4 +1,6 @@
 import React from 'react'
+import styled from 'styled-components'
+import {WiredButton} from 'wired-button'
 
 const SearchResult = ({gem,toggleSave}) => {
     const {
@@ -7,28 +9,53 @@ const SearchResult = ({gem,toggleSave}) => {
         isSaved,
         name,
         version,
+        versionDownloads
     } = gem
 
     const buttonText = isSaved ? <span>🚫 UnSave Gem</span> : <span>💾 Save Gem</span>
+
     return(
-        <>
+        <GemContainer>
             <div>
-                <h3>{name}</h3> <span>{version}</span>
-                <br/>
+                <Top>
+                    <div>
+                        <h3>{name}</h3>
+                        <span>version {version}</span>
+                    </div>
+                    <Downloads>
+                        <span>🔥{downloads} downloads</span>
+                        <span>{versionDownloads} of this version</span>
+                    </Downloads>
+                </Top>
                 <p>{info}</p>
             </div>
             <div>
-                {downloads}
-                <br/>
-                <p>downloads</p>
+                <wired-button onClick={()=>toggleSave(gem)}>
+                    {buttonText}
+                </wired-button>
             </div>
-            <button onClick={()=>toggleSave(gem)}>
-                {buttonText}
-            </button>
-
-        </>
+        </GemContainer>
     )
 }
+
+const GemContainer = styled.div`
+  text-align: left;
+  padding: 2rem;
+`
+
+const Top = styled.div`
+ display: flex; 
+ align-items: baseline;
+ justify-content: space-between;
+ margin-bottom: 0.2rem;
+ > h3 {
+ margin-right: 1rem;
+ }
+`
+
+const Downloads = styled.div`
+  text-align: right;
+`
 
 export default SearchResult
 

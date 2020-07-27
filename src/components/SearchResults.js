@@ -11,7 +11,7 @@ const SearchResults = ({foundGems,loading,savedGems,toggleSave}) => {
 
     return(
         <SearchResultsContainer>
-            <wired-card>
+            <wired-card elevation={3}>
             <h2>Search Results</h2>
             {loading ? <p>loading...</p> :
                 <>
@@ -27,8 +27,7 @@ const SearchResults = ({foundGems,loading,savedGems,toggleSave}) => {
 const SearchResultsContainer = styled.section`
     width: 100%;
     wired-card{
-    
-    width: 100%;
+        width: 100%;
     }
 `
 
