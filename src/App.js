@@ -55,16 +55,16 @@ const App = () => {
 }
 
 const Columns = styled.section`
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  @media (min-width: 768px) {
-    flex-direction: row-reverse;
-  justify-content: space-around;
-  align-items: flex-start;
-  }
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media (min-width: 768px) {
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        align-items: center;
+    }
 `
 
 const AppContainer =styled.section`
@@ -80,6 +80,10 @@ const HeaderContainer = styled.div`
   font-size: 4rem;
   padding: 0;
   width: 100%;
+     margin:0;
+  @media (min-width: 768px) {
+  margin: 7rem 2rem;
+  }
 `
 
 export default App

@@ -9,7 +9,7 @@ const SearchForm = ({performSearch}) => {
     const searchInput = useRef(null)
     useEffect(()=>{
         searchInput.current.focus();
-        handleSubmit({preventDefault: ()=>{}})
+        // handleSubmit({preventDefault: ()=>{}})
     },[])
 
     const handleChange = e => {
