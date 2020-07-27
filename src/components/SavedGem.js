@@ -10,7 +10,7 @@ const SavedGem = ({gem,unSaveGem}) => {
                 <Version>{gem.version}</Version>
             </GemInfo>
             <DeleteButtonContainer>
-                <DeleteButton onClick={()=>unSaveGem(gem)}>𝗫</DeleteButton>
+                <DeleteButton onClick={()=>unSaveGem(gem)} alt={`unsave ${gem.name}`}>𝗫</DeleteButton>
             </DeleteButtonContainer>
         </SavedGemContainer>
     );
@@ -48,7 +48,7 @@ const DeleteButton= styled.button`
     transition: 0.2s all ease-in-out;
     position: absolute;
     right:0;
-    top:0.5rem;
+    top:0;
     :hover{
         color: red;
         cursor: pointer;

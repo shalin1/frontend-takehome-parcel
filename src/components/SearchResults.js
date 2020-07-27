@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import { WiredCard } from 'wired-card'
+import { WiredDivider } from 'wired-divider'
 import SearchResult from './SearchResult'
 
 const SearchResults = ({foundGems,loading,savedGems,toggleSave}) => {
@@ -13,10 +14,12 @@ const SearchResults = ({foundGems,loading,savedGems,toggleSave}) => {
         <SearchResultsContainer>
             <wired-card elevation={3}>
             <h2>Search Results</h2>
-            {loading ? <p>loading...</p> :
+                {loading ? <p>loading...</p> :
                 <>
                     {gems.map(gem => (
-                        <SearchResult key={gem.sha} gem={gem} toggleSave={toggleSave}/>
+                        <>
+                            <SearchResult key={gem.sha} gem={gem} toggleSave={toggleSave}/>
+                       </>
                     ))}
                 </>
             }

@@ -13,50 +13,61 @@ const SearchResult = ({gem,toggleSave}) => {
     } = gem
 
     const buttonText = isSaved ? <span>🚫 UnSave Gem</span> : <span>💾 Save Gem</span>
-    const versionText = versionDownloads > 0 ? <span>{versionDownloads} of this version</span> : null
+    const versionText = versionDownloads > 0 ? <span>, & {versionDownloads} downloads of this version</span> : null
 
     return(
         <GemContainer>
             <div>
                 <Top>
-                    <div>
-                        <h3>{name}</h3>
-                        <span>version {version}</span>
-                    </div>
-                    <Downloads>
-                        <span>{downloads} downloads</span>
-                        <br/>
-                        <span>{versionText}</span>
-                    </Downloads>
+                    <Name>
+                        <h3>{name}</h3><Version>{version}</Version>
+                    </Name>
+                    <wired-button onClick={()=>toggleSave(gem)}>
+                        {buttonText}
+                    </wired-button>
                 </Top>
                 <p>{info}</p>
             </div>
-            <div>
-                <wired-button onClick={()=>toggleSave(gem)}>
-                    {buttonText}
-                </wired-button>
-            </div>
+            <Downloads>
+                <span>{downloads} downloads</span>
+                <span>{versionText}</span>
+            </Downloads>
         </GemContainer>
     )
 }
 
 const GemContainer = styled.div`
-  text-align: left;
-  padding: 2rem;
+    text-align: left;
+    padding: 2rem;
+`
+
+const Name = styled.div`
+    display: flex;
+    align-items: baseline;
+`
+
+const Version = styled.span`
+    color: grey;
+    margin-left: 0.7rem;
 `
 
 const Top = styled.div`
- display: flex; 
- align-items: baseline;
- justify-content: space-between;
- margin-bottom: 0.2rem;
- > h3 {
- margin-right: 1rem;
- }
+     display: flex; 
+     align-items: baseline;
+     justify-content: space-between;
+     margin-bottom: 0.2rem;
+     > h3 {
+         margin-right: 1rem;
+     }
+     > wired-button {
+        font-size: 0.7rem;
+     }
 `
 
 const Downloads = styled.div`
-  text-align: right;
+    color: grey;
+    text-align: left;
+    margin-top: 0.5rem;
 `
 
 export default SearchResult
