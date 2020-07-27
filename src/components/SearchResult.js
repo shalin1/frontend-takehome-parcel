@@ -9,10 +9,11 @@ const SearchResult = ({gem,toggleSave}) => {
         isSaved,
         name,
         version,
-        versionDownloads
+        version_downloads:versionDownloads
     } = gem
 
     const buttonText = isSaved ? <span>🚫 UnSave Gem</span> : <span>💾 Save Gem</span>
+    const versionText = versionDownloads > 0 ? <span>{versionDownloads} of this version</span> : null
 
     return(
         <GemContainer>
@@ -23,8 +24,9 @@ const SearchResult = ({gem,toggleSave}) => {
                         <span>version {version}</span>
                     </div>
                     <Downloads>
-                        <span>🔥{downloads} downloads</span>
-                        <span>{versionDownloads} of this version</span>
+                        <span>{downloads} downloads</span>
+                        <br/>
+                        <span>{versionText}</span>
                     </Downloads>
                 </Top>
                 <p>{info}</p>
