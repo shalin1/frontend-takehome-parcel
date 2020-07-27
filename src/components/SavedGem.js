@@ -7,7 +7,7 @@ const SavedGem = ({gem,unSaveGem}) => {
         <SavedGemContainer>
             <GemInfo key={gem.sha}>
                 <p>{gem.name}</p>
-                <p>version {gem.version}</p>
+                <Version>{gem.version}</Version>
             </GemInfo>
             <DeleteButtonContainer>
                 <DeleteButton onClick={()=>unSaveGem(gem)}>𝗫</DeleteButton>
@@ -24,7 +24,7 @@ const SavedGemContainer = styled.div`
 
 const GemInfo=styled.div`
     width: 100%;
-    font-size: 1.2em;
+    font-size: 1.4rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -32,6 +32,10 @@ const GemInfo=styled.div`
     padding: 0;
 `
 
+const Version = styled.p`
+color: grey;
+font-size: 0.8em;
+`
 const DeleteButtonContainer= styled.div`
     position: relative;
     margin-right: 0.5rem;
@@ -44,8 +48,7 @@ const DeleteButton= styled.button`
     transition: 0.2s all ease-in-out;
     position: absolute;
     right:0;
-    top:0;
-    bottom:0;
+    top:0.5rem;
     :hover{
         color: red;
         cursor: pointer;
