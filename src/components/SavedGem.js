@@ -18,45 +18,39 @@ const SavedGem = ({gem,unSaveGem}) => {
 
 const SavedGemContainer = styled.div`
     width: 100%;
-    max-width: 30rem;
-    padding: 0.4rem;
+    padding: 0.5rem;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    break-inside: avoid-column;
-    page-break-inside: avoid;
 `
 
 const GemInfo=styled.div`
     width: 100%;
-    font-size: 1.4em;
+    font-size: 1.2em;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0;
 `
 
 const DeleteButtonContainer= styled.div`
-    padding-left: 2rem;
     position: relative;
+    margin-right: 0.5rem;
 `
 const DeleteButton= styled.button`
-    margin-left: 1rem;
-    width: 5rem;
     border:none;
     background: transparent;
     color: grey;
     font-size: 1em;
     transition: 0.2s all ease-in-out;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left:0;
+    right:0;
+    top:0;
+    bottom:0;
     :hover{
         color: red;
         cursor: pointer;
         font-size: 2rem;
         text-shadow: 1px 0px 30px rgba(255, 121, 111, 1);
-        margin-right: 2rem;
         }
 `
 
