@@ -19,7 +19,7 @@ const SavedGem = ({gem,unSaveGem}) => {
 const SavedGemContainer = styled.div`
     width: 100%;
     max-width: 30rem;
-    padding: 10px;
+    padding: 0.4rem;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -36,8 +36,7 @@ const GemInfo=styled.div`
 `
 
 const DeleteButtonContainer= styled.div`
-  width: 7rem; 
-    padding: 2rem;
+    padding-left: 2rem;
     position: relative;
 `
 const DeleteButton= styled.button`

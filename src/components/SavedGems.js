@@ -34,10 +34,10 @@ const SavedGems = ({gems,unSaveGem}) => {
 
 const SavedGemsContainer = styled.section`
     text-align: center;
-    margin: 2rem;
     width: 100%;
     > wired-card {
         width: 100%;
+       padding:0;  
         text-align: left;
     }
 `
