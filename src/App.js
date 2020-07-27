@@ -70,12 +70,13 @@ const Columns = styled.section`
 const SiteTitle = styled.h1`
 `
 
-const AppContainer =styled.section`
+const AppContainer =styled.body`
     background: white;
     text-align: center;
     > wired-card {
-        padding: 2rem 4rem;
-        width: 100%;
+        margin: 4rem;
+        padding: 2rem 4rem 8rem;
+        width: 80vw;
     }
 `
 
