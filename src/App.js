@@ -69,7 +69,6 @@ const Columns = styled.section`
 
 const AppContainer =styled.section`
     background: white;
-    margin: 0.5rem;
     text-align: center;
     > wired-card {
         padding: 2rem 4rem;
