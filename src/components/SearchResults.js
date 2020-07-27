@@ -14,14 +14,16 @@ const SearchResults = ({foundGems,loading,savedGems,toggleSave}) => {
         <SearchResultsContainer>
             <wired-card elevation={3}>
             <h2>Search Results</h2>
-                {loading ? <p>loading...</p> :
-                <>
-                    {gems.map(gem => (
-                        <>
-                            <SearchResult key={gem.sha} gem={gem} toggleSave={toggleSave}/>
-                       </>
-                    ))}
-                </>
+                {loading ? <p>loading...</p>
+                    : gems.length === 0 ? <p>'💣☹️ no gems found️</p>
+                        : <>
+                            {gems.map(gem => (
+                                <>
+                                    <SearchResult key={gem.sha} gem={gem} toggleSave={toggleSave}/>
+                               </>
+                            ))}
+                        </>
+
             }
             </wired-card>
         </SearchResultsContainer>
