@@ -13,7 +13,6 @@ const App = () => {
     const [querySubmitted,setQuerySubmitted] = useState(false)
 
     const performSearch = async query => {
-        console.log('query', query)
         setQuerySubmitted(true)
         setLoading(true)
         const res = await api.getGems({ query })
