@@ -79,6 +79,7 @@ const AppContainer =styled.section`
 const HeaderContainer = styled.div`
   font-size: 4rem;
   padding: 0;
+  width: 100%;
 `
 
 export default App
