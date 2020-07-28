@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { WiredButton } from "wired-button"
 import { WiredCard } from "wired-card"
 import { WiredDivider } from "wired-divider"
+import NullState from './NullState.js'
 import SavedGem from './SavedGem'
 
 const SavedGems = ({gems,unSaveGem}) => {
@@ -59,13 +60,6 @@ const InnerContainer = styled.div`
 
 const OuterSavedGemContainer = styled.section`
   width: 100%;
-`
-
-const NullState = styled.div`
-    font-size: 1.4rem;
-    display: flex;
-    justify-content: center;
-    padding: 2rem 0;
 `
 
 SavedGems.propTypes = {
