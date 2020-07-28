@@ -12,7 +12,7 @@ const SavedGems = ({gems,unSaveGem}) => {
             <wired-card>
                 <InnerContainer>
                     <h3>Saved Gems</h3>
-                    <br/>
+                    <wired-divider/>
                     <OuterSavedGemContainer>
                     {gems.length===0
                         ? <NullState>No gems saved yet!</NullState>
@@ -52,6 +52,9 @@ const InnerContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    wired-divider {
+        margin: 0.5rem 1rem;
+    }
 `
 
 const OuterSavedGemContainer = styled.section`
