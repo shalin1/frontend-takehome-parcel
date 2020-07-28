@@ -31,8 +31,10 @@ const SearchResults = ({foundGems,loading,savedGems,toggleSave}) => {
 }
 const SearchResultsContainer = styled.section`
     width: 100%;
+        height: 2000px;
     wired-card{
         width: 100%;
+        height: 2000px;
     }
 `
 

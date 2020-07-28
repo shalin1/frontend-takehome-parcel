@@ -64,7 +64,7 @@ const Columns = styled.section`
     @media (min-width: 1024px) {
         flex-direction: row-reverse;
         justify-content: space-around;
-        align-items: flex-start;
+        align-items: center;
     }
 `
 
@@ -76,7 +76,7 @@ const AppContainer =styled.body`
     text-align: center;
     > wired-card {
         margin: 4rem;
-        padding: 2rem 4rem 8rem;
+        padding: 2rem 4rem 4rem;
         width: 80vw;
     }
 `

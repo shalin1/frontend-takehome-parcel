@@ -15,7 +15,7 @@ const SavedGems = ({gems,unSaveGem}) => {
                     <br/>
                     <OuterSavedGemContainer>
                     {gems.length===0
-                        ? <p>No gems saved yet!</p>
+                        ? <NullState>No gems saved yet!</NullState>
                         : <>
                             {gems.map((gem) => (
                                 <SavedGem
@@ -56,6 +56,13 @@ const InnerContainer = styled.div`
 
 const OuterSavedGemContainer = styled.section`
   width: 100%;
+`
+
+const NullState = styled.div`
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
 `
 
 SavedGems.propTypes = {

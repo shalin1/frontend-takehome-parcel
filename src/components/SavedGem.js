@@ -33,13 +33,14 @@ const GemInfo=styled.div`
 `
 
 const Version = styled.p`
-color: grey;
-font-size: 0.8em;
+    color: grey;
+    font-size: 0.8em;
 `
 const DeleteButtonContainer= styled.div`
     position: relative;
     margin-right: 0.5rem;
 `
+
 const DeleteButton= styled.button`
     border:none;
     background: transparent;
