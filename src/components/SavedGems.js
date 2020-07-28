@@ -53,7 +53,7 @@ const InnerContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    wired-divider {
+    > wired-divider {
         margin: 0.5rem 1rem;
     }
 `

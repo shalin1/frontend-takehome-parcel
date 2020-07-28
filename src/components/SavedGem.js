@@ -47,13 +47,13 @@ const DeleteButton= styled.button`
     color: grey;
     font-size: 1em;
     transition: 0.2s all ease-in-out;
+    padding: 1rem 0.5rem 1rem 1rem;
     position: absolute;
     right:0;
-    top:0;
     :hover{
         color: red;
         cursor: pointer;
-        font-size: 2rem;
+        font-size: 1.3rem;
         text-shadow: 1px 0px 30px rgba(255, 121, 111, 1);
         }
 `

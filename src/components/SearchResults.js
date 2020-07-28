@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import { WiredCard } from 'wired-card'
 import { WiredDivider } from 'wired-divider'
+import Loading from './Loading'
 import NullState from './NullState.js'
 import SearchResult from './SearchResult'
 
@@ -15,8 +16,11 @@ const SearchResults = ({foundGems,loading,savedGems,toggleSave}) => {
         <SearchResultsContainer>
             <wired-card elevation={3}>
             <h2>Search Results</h2>
-                {loading ? <p>loading...</p>
-                    : gems.length === 0 ? <NullState>'💣☹️ no gems found️</NullState>
+                <DividerContainer>
+                    <wired-divider />
+                </DividerContainer>
+                {loading ? <Loading/>
+                    : gems.length === 0 ? <NullState>'<h2>💣☹️ no gems found!</h2>️</NullState>
                         : <>
                             {gems.map(gem => (
                                 <>
@@ -33,10 +37,20 @@ const SearchResults = ({foundGems,loading,savedGems,toggleSave}) => {
 
 const SearchResultsContainer = styled.section`
     width: 100%;
-        height: 2000px;
-    wired-card{
+    height: 20rem;
+    > wired-card{
         margin: 0 2rem;
-        height: 2000px;
+    }
+`
+
+const DividerContainer = styled.div`
+    width: 20rem;
+    margin: auto;
+    > wired-divider {
+        margin: 0.5rem 1rem;
+    }
+    @media (min-width:768px) {
+    width: 20rem;
     }
 `
 
