@@ -35,9 +35,9 @@ const App = () => {
             <wired-card elevation={3}>
                 <Columns showResults={querySubmitted}>
                     <HeaderContainer>
-                        <SiteTitle>GemDiggr</SiteTitle>
-                        <p>💎</p>
+                        <h1>GemDiggr</h1>
                         <h2>A Ruby Gems Search Client</h2>
+                        <h2>✨💎⛏💎✨</h2>
                         <SearchForm performSearch={performSearch} loading={loading} />
                     </HeaderContainer>
                     <SavedGems gems={savedGems} unSaveGem={unSaveGem}/>
@@ -75,7 +75,7 @@ const AppContainer =styled.body`
     background: white;
     text-align: center;
     > wired-card {
-        margin: 4rem;
+        margin: 3rem 4rem;
         padding: 2rem 4rem 4rem;
         width: 80vw;
     }
