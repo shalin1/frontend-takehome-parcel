@@ -33,7 +33,7 @@ const SearchResultsContainer = styled.section`
     width: 100%;
         height: 2000px;
     wired-card{
-        width: 100%;
+        margin: 0 2rem;
         height: 2000px;
     }
 `
