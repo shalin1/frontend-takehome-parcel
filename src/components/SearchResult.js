@@ -16,13 +16,15 @@ const SearchResult = ({gem,toggleSave}) => {
 
     return(
         <GemContainer>
-            <wired-card>
-            <div>
+            <wired-card styl={{width:'80vw'}}>
+            <div >
                 <Top>
                     <Name>
-                        <h3 style={{hyphenation:'auto', fontSize:'1.6rem'}}>{name}</h3><Version>{version}</Version>
+                        <h3 style={{hyphenation:'auto', fontSize:'1.6rem'}}>{name}</h3>
+                        <br/>
+                        <Version>{version}</Version>
                     </Name>
-                    <wired-button onClick={()=>toggleSave(gem)}>
+                    <wired-button onClick={()=>toggleSave(gem)} style={{whiteSpace:'nowrap'}}>
                         {buttonText}
                     </wired-button>
                 </Top>
@@ -44,26 +46,31 @@ const GemContainer = styled.div`
     flex-direction: column;
     (@min-width:768px){
     
-    margin: 2rem;
+        margin: 2rem;
     }
     wired-card {
-      padding: 2rem;
+      padding: 1rem;
     }
 `
 
 const Name = styled.div`
     display: flex;
-    align-items: baseline;
+    flex-direction: column;
+    align-items: flex-start;
+    width:90%;
 `
 
 const Version = styled.span`
     color: grey;
-    margin-left: 0.7rem;
 `
 
 const Top = styled.div`
      display: flex; 
      flex-direction: column;
+     (@media (min-width: 768px)){
+      flex-direction: row;
+      margin-button:1rem;
+     }
      align-items: baseline;
      justify-content: space-between;
      margin-bottom: 0.2rem;
