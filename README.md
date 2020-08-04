@@ -1,51 +1,41 @@
-# Teachable frontend takehome
+# GemDiggr 💎⛏😎™️
 
-If you're reading this, you're likely a candidate for a frontend job at Teachable. You're going to be building a search application that takes a user's search query, hits the [Ruby Gems](https://rubygems.org/) search API endpoint, and displays the results in a list view with some added functionality (detailed below).
+### A minimal hand-drawn RubyGems search app
 
-The application, once completed, should meet the following criteria:
+If you're reading this, you're likely evaluating candidates for a front end position at Teachable. Hi! I really hope you like the app.
 
-1. It have a search box that lets users search for Ruby Gems.
-2. It should display the results of the search in a list.
-3. Each Gem should have a button that lets users "save" and "unsave" Gems.
-4. It should have a way to view saved Gems, even after the browser window is refreshed (localStorage is a fine for this).
+I worked with React and Styled Components, which I mostly use because they're widely understood. I also really like Vue and Tailwind, and kinda wish I'd taken the opportunity tot try out Svelte or (gasp) plain ol' css/html.
 
-Here's a few things we'll look for in our evaluation.
+### Running the app
 
-1. Clean, well-organized code.
-2. Sensisble architecture choices that could scale well.
-3. A clean, functioning UI.
-4. Bonus points if you write tests.
+💻 Install a recent version of Node
 
-## Getting started
+⏳ Run a quick `npm install`. Grab a coffee.
 
-### Step 1: Fork this repo and clone it
+🆒 This uses Parcel to start up an express server on port 3000 and a React app on 1234
 
-### Step 2: Install dependencies
+🌍 Open up the app on in your browser at [localhost:3000](http://localhost:3000/)
 
-We have a few dependencies necessary to run the build and proxy server, the rest are up to you.
+###Here's what's cool here:
+✅ Works! You can find real gems that are worth installing.
 
-```bash
-npm install
-```
+↬ Responsive! It looks fine on modern mobile phones, as well as most modern browsers.
 
-### Step 3: Start the development server
+🚫 Untested on ie8!
 
-```bash
-npm run dev
-```
+✍🏼 Hand drawn vibe courtesy of the extremely cool [Wired Elements](https://wiredjs.com/) library, every box in the app renders a little different each time.
 
-### Step 4: Start coding
+💎 Sick favicon
 
-We want to judge your ability to program UIs, not configure build tools. That's why we chose [Parcel](https://parceljs.org/) as a bundler, please consult the [documentation](https://parceljs.org/getting_started.html) if you run into any trouble.
+🛀 Pretty clean code!
 
-We added a CSS file as an example, feel free to delete that.
+####(Less cool things):
+🧪 I started implementing tests, which took forever to set up because Parcel and Babel and Enzyme and Jest were having weird version incompatibility issues. They're still are there in the git history if you're curious with enzyme and jest with react-axe fo, and then got way behind with my freelance work and nuked them-- because no tests is better than broken tests.
 
-### Step 5: Network requests
+🙁 No pagination, boo.
 
-You may have noticed the server.js file at the root of this application, that's there to solve cross-origin issues when making network requests. The server automatically starts up when running "npm run dev" or "npm run start".
+🔍 Making a resource show in addition to the index view would mean I'd probably never go to rubygems again
 
-To see a sample request in action, run the following in your command line.
+ឱ No typing makes us a little more vulnerable to change and makes collaborating a little harder, there is probably a null check or two that Typescript would have asked for that would have perhaps made the code nicer.
 
-```bash
-curl http://localhost:3000/api/v1/search.json?query=rails
-```
+### Thanks!
