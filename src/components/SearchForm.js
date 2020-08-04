@@ -25,6 +25,7 @@ const SearchForm = ({ performSearch }) => {
 
   return (
     <FormContainer>
+      <label htmlFor="search-box" />
       <wired-input
         aria-label="Search"
         onKeyUp={handleChange}
@@ -32,6 +33,8 @@ const SearchForm = ({ performSearch }) => {
         ref={searchInput}
         name="Search Input"
         type="text"
+        id="search-box"
+        title="search box"
         value={query}
       />
       <wired-button onClick={handleSubmit} elevation={3} id="submit-button">

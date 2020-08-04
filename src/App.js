@@ -70,7 +70,7 @@ const Columns = styled.section`
   }
 `;
 
-const AppContainer = styled.body`
+const AppContainer = styled.article`
   background: white;
   text-align: center;
   height: 100%;
