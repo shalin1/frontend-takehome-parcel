@@ -74,6 +74,7 @@ const SiteTitle = styled.h1`
 const AppContainer =styled.body`
     background: white;
     text-align: center;
+        height: 100%;
     > wired-card {
         margin: 3rem 4rem;
         padding: 2rem 4rem 4rem;
