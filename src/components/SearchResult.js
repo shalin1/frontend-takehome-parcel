@@ -41,22 +41,23 @@ const SearchResult = ({gem,toggleSave}) => {
 }
 
 const GemContainer = styled.div`
-    text-align: left;
+    text-align: center;
     display:flex;
     flex-direction: column;
-    (@min-width:768px){
-    
+    > wired-card {
+    @media (min-width:768px){
         margin: 2rem;
-    }
-    wired-card {
       padding: 1rem;
+     > * {
+    margin: 0.5rem;
     }
+    
 `
 
 const Name = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     width:90%;
 `
 
@@ -67,11 +68,10 @@ const Version = styled.span`
 const Top = styled.div`
      display: flex; 
      flex-direction: column;
-     (@media (min-width: 768px)){
-      flex-direction: row;
-      margin-button:1rem;
+     @media (min-width: 768px){
+      margin-botton:1rem;
      }
-     align-items: baseline;
+     align-items: center;
      justify-content: space-between;
      margin-bottom: 0.2rem;
      > h3 {
@@ -84,7 +84,7 @@ const Top = styled.div`
 
 const Downloads = styled.div`
     color: grey;
-    text-align: left;
+    text-align: center;
     margin-top: 0.5rem;
 `
 
