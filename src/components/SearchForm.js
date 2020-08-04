@@ -59,10 +59,6 @@ const FormContainer = styled.section`
     height: 4rem;
     font-size: 2.07rem;
     margin: 0.16rem 0 0 -0.2rem;
-    :hover {
-      background-color: lightcoral;
-      border-radius: 0.4rem;
-    }
   }
 `;
 
