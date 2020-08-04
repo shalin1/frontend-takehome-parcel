@@ -1,44 +1,51 @@
-import React from 'react'
-import styled from 'styled-components'
-import {WiredButton} from 'wired-button'
+import React from "react";
+import styled from "styled-components";
+import { WiredButton } from "wired-button";
 
-const SearchResult = ({gem,toggleSave}) => {
-    const {
-        downloads,
-        info,
-        isSaved,
-        name,
-        version,
-        version_downloads:versionDownloads
-    } = gem
+const SearchResult = ({ gem, toggleSave }) => {
+  const {
+    downloads,
+    info,
+    isSaved,
+    name,
+    version,
+    version_downloads: versionDownloads,
+  } = gem;
 
-    const buttonText = isSaved ? <span>🚫 UnSave Gem</span> : <span>💾 Save Gem</span>
+  const buttonText = isSaved ? (
+    <span>🚫 UnSave Gem</span>
+  ) : (
+    <span>💾 Save Gem</span>
+  );
 
-    return(
-        <GemContainer>
-            <wired-card styl={{width:'80vw'}}>
-            <div >
-                <Top>
-                    <Name>
-                        <h3 style={{hyphenation:'auto', fontSize:'1.6rem'}}>{name}</h3>
-                        <br/>
-                        <Version>{version}</Version>
-                    </Name>
-                    <wired-button onClick={()=>toggleSave(gem)} style={{whiteSpace:'nowrap'}}>
-                        {buttonText}
-                    </wired-button>
-                </Top>
-                <div style={{width:"100%"}}>
-                {info}
-                </div>
-            </div>
-            <Downloads>
-                <span>{downloads} downloads</span>
-            </Downloads>
-            </wired-card>
-        </GemContainer>
-    )
-}
+  return (
+    <GemContainer>
+      <wired-card styl={{ width: "80vw" }}>
+        <div>
+          <Top>
+            <Name>
+              <h3 style={{ hyphenation: "auto", fontSize: "1.6rem" }}>
+                {name}
+              </h3>
+              <br />
+              <Version>{version}</Version>
+            </Name>
+            <wired-button
+              onClick={() => toggleSave(gem)}
+              style={{ whiteSpace: "nowrap" }}
+            >
+              {buttonText}
+            </wired-button>
+          </Top>
+          <div style={{ width: "100%" }}>{info}</div>
+        </div>
+        <Downloads>
+          <span>{downloads} downloads</span>
+        </Downloads>
+      </wired-card>
+    </GemContainer>
+  );
+};
 
 const GemContainer = styled.div`
     text-align: center;
@@ -52,61 +59,40 @@ const GemContainer = styled.div`
     margin: 0.5rem;
     }
     
-`
+`;
 
 const Name = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width:90%;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+`;
 
 const Version = styled.span`
-    color: grey;
-`
+  color: grey;
+`;
 
 const Top = styled.div`
-     display: flex; 
-     flex-direction: column;
-     @media (min-width: 768px){
-      margin-botton:1rem;
-     }
-     align-items: center;
-     justify-content: space-between;
-     margin-bottom: 0.2rem;
-     > h3 {
-         margin-right: 1rem;
-     }
-     > wired-button {
-        font-size: 0.7rem;
-     }
-`
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    margin-botton: 1rem;
+  }
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
+  > h3 {
+    margin-right: 1rem;
+  }
+  > wired-button {
+    font-size: 0.7rem;
+  }
+`;
 
 const Downloads = styled.div`
-    color: grey;
-    text-align: center;
-    margin-top: 0.5rem;
-`
+  color: grey;
+  text-align: center;
+  margin-top: 0.5rem;
+`;
 
-export default SearchResult
-
-
-// SearchResults.propTypes = {
-//     foundGems: PropTypes.arrayOf(
-//         //todo: refactor to pull this shape out as its shareable prop obj
-//         PropTypes.shape({
-//             authors: PropTypes.string,
-//             documentation_uri: PropTypes.string,
-//             downloads: PropTypes.number,
-//             gem_uri: PropTypes.string,
-//             homepage_uri: PropTypes.string,
-//             info: PropTypes.string,
-//             licenses: PropTypes.arrayOf(PropTypes.string),
-//             name: PropTypes.string,
-//             project_uri: PropTypes.string,
-//             sha: PropTypes.string,
-//             version: PropTypes.string,
-//             version_downloads: PropTypes.number,
-//         })
-//     ),
-// }
+export default SearchResult;
