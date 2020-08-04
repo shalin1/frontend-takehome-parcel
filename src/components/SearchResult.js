@@ -13,32 +13,42 @@ const SearchResult = ({gem,toggleSave}) => {
     } = gem
 
     const buttonText = isSaved ? <span>🚫 UnSave Gem</span> : <span>💾 Save Gem</span>
-    const versionText = versionDownloads > 0 ? <span>, & {versionDownloads} downloads of this version</span> : null
 
     return(
         <GemContainer>
+            <wired-card>
             <div>
                 <Top>
                     <Name>
-                        <h3>{name}</h3><Version>{version}</Version>
+                        <h3 style={{hyphenation:'auto', fontSize:'1.6rem'}}>{name}</h3><Version>{version}</Version>
                     </Name>
                     <wired-button onClick={()=>toggleSave(gem)}>
                         {buttonText}
                     </wired-button>
                 </Top>
-                <p>{info}</p>
+                <div style={{width:"100%"}}>
+                {info}
+                </div>
             </div>
             <Downloads>
                 <span>{downloads} downloads</span>
-                <span>{versionText}</span>
             </Downloads>
+            </wired-card>
         </GemContainer>
     )
 }
 
 const GemContainer = styled.div`
     text-align: left;
-    padding: 2rem;
+    display:flex;
+    flex-direction: column;
+    (@min-width:768px){
+    
+    margin: 2rem;
+    }
+    wired-card {
+      padding: 2rem;
+    }
 `
 
 const Name = styled.div`
@@ -53,6 +63,7 @@ const Version = styled.span`
 
 const Top = styled.div`
      display: flex; 
+     flex-direction: column;
      align-items: baseline;
      justify-content: space-between;
      margin-bottom: 0.2rem;

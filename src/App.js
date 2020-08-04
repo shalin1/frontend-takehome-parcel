@@ -68,17 +68,18 @@ const Columns = styled.section`
     }
 `
 
-const SiteTitle = styled.h1`
-`
 
 const AppContainer =styled.body`
     background: white;
     text-align: center;
         height: 100%;
     > wired-card {
-        margin: 3rem 4rem;
-        padding: 2rem 4rem 4rem;
-        width: 80vw;
+        margin-top: 3rem;
+        padding: 1rem;
+        @media (min-width:1024px) {
+        
+            width: 80vw;
+        }
     }
 `
 
