@@ -13,7 +13,7 @@ const SavedGems = ({gems,unSaveGem}) => {
             <wired-card>
                 <InnerContainer>
                     <h3>Saved Gems</h3>
-                    <wired-divider/>
+                    <wired-divider style={{width:'90%'}} />
                     <OuterSavedGemContainer>
                     {gems.length===0
                         ? <NullState>No gems saved yet!</NullState>
