@@ -3,14 +3,7 @@ import styled from "styled-components";
 import { WiredButton } from "wired-button";
 
 const SearchResult = ({ gem, toggleSave }) => {
-  const {
-    downloads,
-    info,
-    isSaved,
-    name,
-    version,
-    version_downloads: versionDownloads,
-  } = gem;
+  const { downloads, info, isSaved, name, version } = gem;
 
   const buttonText = isSaved ? (
     <span>🚫 UnSave Gem</span>
@@ -58,7 +51,6 @@ const GemContainer = styled.div`
      > * {
     margin: 0.5rem;
     }
-    
 `;
 
 const Name = styled.div`
@@ -76,7 +68,7 @@ const Top = styled.div`
   display: flex;
   flex-direction: column;
   @media (min-width: 768px) {
-    margin-botton: 1rem;
+    margin-bottom: 1rem;
   }
   align-items: center;
   justify-content: space-between;

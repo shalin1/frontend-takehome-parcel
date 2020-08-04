@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import { WiredButton } from "wired-button";
 import { WiredCard } from "wired-card";
@@ -59,7 +58,5 @@ const InnerContainer = styled.div`
 const OuterSavedGemContainer = styled.section`
   width: 100%;
 `;
-
-SavedGems.propTypes = {};
 
 export default SavedGems;

@@ -8,7 +8,7 @@ const Loading = () => {
 
   useInterval(() => {
     percentage < 100 ? setPercentage(percentage + 1) : setPercentage(0);
-  }, 35);
+  }, 25);
 
   return (
     <LoadingContainer>

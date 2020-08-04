@@ -28,9 +28,7 @@ const SearchResults = ({ foundGems, loading, savedGems, toggleSave }) => {
         </DividerContainer>
         <>
           {gems.map((gem) => (
-            <>
-              <SearchResult key={gem.sha} gem={gem} toggleSave={toggleSave} />
-            </>
+            <SearchResult key={gem.sha} gem={gem} toggleSave={toggleSave} />
           ))}
         </>
         )}

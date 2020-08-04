@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import { WiredInput } from "wired-input";
 import { WiredButton } from "wired-button";
@@ -7,6 +6,7 @@ import { WiredButton } from "wired-button";
 const SearchForm = ({ performSearch }) => {
   const [query, setQuery] = useState("");
   const searchInput = useRef(null);
+
   useEffect(() => {
     searchInput.current.focus();
   }, []);
@@ -66,8 +66,4 @@ const FormContainer = styled.section`
   }
 `;
 
-SearchForm.propTypes = {
-  loading: PropTypes.bool,
-  performSearch: PropTypes.func,
-};
 export default SearchForm;
