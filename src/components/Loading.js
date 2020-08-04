@@ -12,7 +12,7 @@ const Loading = () => {
 
   return (
     <LoadingContainer>
-      <wired-progress value={percentage}></wired-progress>
+      <wired-progress value={percentage} style={{ width: "100%" }} />
     </LoadingContainer>
   );
 };

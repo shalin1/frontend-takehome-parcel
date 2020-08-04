@@ -53,7 +53,7 @@ const GemContainer = styled.div`
     flex-direction: column;
     > wired-card {
     @media (min-width:768px){
-        margin: 2rem;
+      margin: 1rem 2rem;
       padding: 1rem;
      > * {
     margin: 0.5rem;

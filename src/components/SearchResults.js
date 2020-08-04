@@ -12,6 +12,13 @@ const SearchResults = ({ foundGems, loading, savedGems, toggleSave }) => {
     return { ...found, isSaved };
   });
 
+  if (loading) return <Loading />;
+  if (gems.legnth === 0)
+    return (
+      <NullState>
+        '<h2>💣☹️ no gems found!</h2>️
+      </NullState>
+    );
   return (
     <SearchResultsContainer>
       <wired-card elevation={3}>
@@ -19,20 +26,13 @@ const SearchResults = ({ foundGems, loading, savedGems, toggleSave }) => {
         <DividerContainer>
           <wired-divider />
         </DividerContainer>
-        {loading ? (
-          <Loading />
-        ) : gems.length === 0 ? (
-          <NullState>
-            '<h2>💣☹️ no gems found!</h2>️
-          </NullState>
-        ) : (
-          <>
-            {gems.map((gem) => (
-              <>
-                <SearchResult key={gem.sha} gem={gem} toggleSave={toggleSave} />
-              </>
-            ))}
-          </>
+        <>
+          {gems.map((gem) => (
+            <>
+              <SearchResult key={gem.sha} gem={gem} toggleSave={toggleSave} />
+            </>
+          ))}
+        </>
         )}
       </wired-card>
     </SearchResultsContainer>
@@ -41,8 +41,6 @@ const SearchResults = ({ foundGems, loading, savedGems, toggleSave }) => {
 
 const SearchResultsContainer = styled.section`
   width: 100%;
-  > wired-card {
-  }
 `;
 
 const DividerContainer = styled.div`
